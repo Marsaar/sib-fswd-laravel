@@ -10,9 +10,7 @@ class UsersController extends Controller
     public function index()
     {
         $users = Crud::all(); // Ganti 'Crud' dengan model yang sesuai
-        return view('crud.tableuser', compact('users'));
+        return view('crud.tableuser', compact('users'));//$data dan compact('data') harus sama
     }
-
-    
 }
 

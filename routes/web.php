@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\ProductsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +18,14 @@ use App\Http\Controllers\UsersController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('ecommerce.landing');
 });
 
-Route::get('/crud', [UsersController::class, 'index'])->name('crud.tableuser');
-;
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('ecommerce.dashboard');
+Route::get('/category', [CategoriesController::class, 'index'])->name('ecommerce.category.index');
+Route::get('/product', [ProductsController::class, 'index'])->name('ecommerce.product.index');
+
+
+Route::get('/crud', [UsersController::class, 'index'])->name('crud.tableuser');;
 

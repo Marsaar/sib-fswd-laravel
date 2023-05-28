@@ -14,8 +14,8 @@
             </a>
             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="layout-static.html">Categories</a>
-                    <a class="nav-link" href="layout-sidenav-light.html">Product</a>
+                    <a class="nav-link" href="{{ route('ecommerce.category.index') }}">Categories</a>
+                    <a class="nav-link" href="{{ route('ecommerce.product.index') }}">Products</a>
                 </nav>
             </div>
 
@@ -26,8 +26,8 @@
             </a>
             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="layout-static.html">Role</a>
-                    <a class="nav-link" href="layout-sidenav-light.html">User</a>
+                    <a class="nav-link" href="{{ route('ecommerce.role.index') }}">Role</a>
+                    <a class="nav-link" href="{{ route('ecommerce.user.index') }}">User</a>
                 </nav>
             </div>
         </div>

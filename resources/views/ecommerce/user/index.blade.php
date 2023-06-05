@@ -3,19 +3,16 @@
 @section('content')
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Products</h1>
+        <h1 class="mt-4">Users</h1>
+        <a class="btn btn-primary mb-2" href="{{ route('ecommerce.user.create') }}" role="button">Insert</a>
         <div class="card mb-4">
-            <div class="card-header">
-                <i class="fas fa-table me-1"></i>
-                DataTable Example
-            </div>
+           
             <div class="card-body">
                 <table id="datatablesSimple" class="table table-striped">
                     <thead>
                         <tr>
                             <th>#</th>
                             <th>Action</th>
-                            <th>Avatar</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone</th>
@@ -23,16 +20,19 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($users as $user)
                         <tr>
-                            <td>1</td>
-                            <td><a class="btn btn-warning" href="#">Edit</a>
-                                <a class="btn btn-danger" href="#">Delete</a></td>
-                            <td><img src="https://placehold.co/50x50"></td>
-                            <td>Admin</td>
-                            <td>admin@mail.com</td>
-                            <td>0382861863</td>
-                            <td>Administrator</td>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>
+                                <a href="#" class="btn btn-warning">Edit</a>
+                                <button class="btn btn-danger">Delete</button>
+                            </td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>{{ $user->phone }}</td>
+                            <td>{{ $user->role->name}}</td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

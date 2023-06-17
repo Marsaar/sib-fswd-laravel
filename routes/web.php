@@ -34,26 +34,31 @@ Route::middleware('auth')->group(function(){
 Route::get('/', function () {
     return view('ecommerce.landing');
 });
-//logout
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-//Dasboard
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('ecommerce.dashboard');
-//category
-Route::get('/category', [CategoriesController::class, 'index'])->name('ecommerce.category.index');
-Route::get('/category/create', [CategoriesController::class, 'create'])->name('ecommerce.category.create');
-Route::post('/category', [CategoriesController::class, 'store'])->name('ecommerce.category.store');
-//Product
-Route::get('/product', [ProductsController::class, 'index'])->name('ecommerce.product.index');
-Route::get('/product/create', [ProductsController::class, 'create'])->name('ecommerce.product.create');
-Route::post('/product', [ProductsController::class, 'store'])->name('ecommerce.product.store');
-//User
-Route::get('/user', [UserController::class, 'index'])->name('ecommerce.user.index');
-Route::get('/user/create', [UserController::class, 'create'])->name('ecommerce.user.create');
-Route::post('/user', [UserController::class, 'store'])->name('ecommerce.user.store');
-//Role
-Route::get('/role', [RoleController::class, 'index'])->name('ecommerce.role.index');
-Route::get('/role/create', [RoleController::class, 'create'])->name('ecommerce.role.create');
-Route::post('/role', [RoleController::class, 'store'])->name('ecommerce.role.store');
+    //logout
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+    
+    //Dasboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('ecommerce.dashboard');
+
+    Route::middleware('role:Admin')->group(function(){
+    //category
+    Route::get('/category', [CategoriesController::class, 'index'])->name('ecommerce.category.index');
+    Route::get('/category/create', [CategoriesController::class, 'create'])->name('ecommerce.category.create');
+    Route::post('/category', [CategoriesController::class, 'store'])->name('ecommerce.category.store');
+    });
+
+    //Product
+    Route::get('/product', [ProductsController::class, 'index'])->name('ecommerce.product.index');
+    Route::get('/product/create', [ProductsController::class, 'create'])->name('ecommerce.product.create');
+    Route::post('/product', [ProductsController::class, 'store'])->name('ecommerce.product.store');
+    //User
+    Route::get('/user', [UserController::class, 'index'])->name('ecommerce.user.index');
+    Route::get('/user/create', [UserController::class, 'create'])->name('ecommerce.user.create');
+    Route::post('/user', [UserController::class, 'store'])->name('ecommerce.user.store');
+    //Role
+    Route::get('/role', [RoleController::class, 'index'])->name('ecommerce.role.index');
+    Route::get('/role/create', [RoleController::class, 'create'])->name('ecommerce.role.create');
+    Route::post('/role', [RoleController::class, 'store'])->name('ecommerce.role.store');
 });
 
 

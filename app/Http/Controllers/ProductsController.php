@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProductsController extends Controller
 {
@@ -22,6 +23,20 @@ class ProductsController extends Controller
     }
 
     public function store(Request $request){
+
+        $validator = Validator::make($request->all(),[
+            'category_id' => 'required',
+            'name' => 'required|string',
+            'price' => 'required|integer',
+            'sale_price' => 'required|integer',
+            'brands' => 'required|string'
+            
+        ]);
+
+        if ($validator->fails()){
+            return redirect()->back()->withErrors($validator->errors())->withInput();
+        }
+
         $product = Product::create([
             'category_id' => $request->category,
             'name' => $request->name,

@@ -14,10 +14,10 @@
                             <th>#</th>
                             <th>Category</th>
                             <th>Name</th>
+                            <th>Image</th>
                             <th>Price</th>
                             <th>Sale Price</th>
                             <th>Brand</th>
-                            <th>Rating</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -27,10 +27,10 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $product->category->name }}</td>
                             <td>{{ $product->name }}</td>
+                            <td>{{ $product->rating }}</td>
                             <td>Rp. {{ number_format($product->price, 0, 2) }}</td>
                             <td>Rp. {{ number_format($product->sale_price, 0, 2) }}</td>
                             <td>{{ $product->brands }}</td>
-                            <td>{{ $product->rating }}</td>
                             <td>
                                 <a href="#" class="btn btn-warning">Edit</a>
                                 <button class="btn btn-danger">Delete</button>

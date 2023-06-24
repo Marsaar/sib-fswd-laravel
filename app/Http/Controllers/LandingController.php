@@ -14,11 +14,14 @@ class LandingController extends Controller
         // mengambil data category
         $categories = Category::all();
 
-        // mengambil data slider yang sudah di approve
+        // mengambil data slider
         $sliders = Slider::all();
 
+       
+            
+        $products = Product::inRandomOrder()->limit(8)->get();
         
 
-        return view('ecommerce.landing', compact( 'categories', 'sliders'));
+        return view('ecommerce.landing', compact( 'products','categories', 'sliders'));
     }
 }

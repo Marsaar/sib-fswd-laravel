@@ -27,13 +27,24 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $product->category->name }}</td>
                             <td>{{ $product->name }}</td>
-                            <td>{{ $product->rating }}</td>
+                            <td>
+                                @if ($product->image == null)
+                                <small><em>No Image</em></span>
+                                @else
+                                    <img src="{{ asset('storage/product/' . $product->image) }}" alt="{{ $product->name }}" style="max-width: 50px">
+                                @endif
+                            </td>
                             <td>Rp. {{ number_format($product->price, 0, 2) }}</td>
                             <td>Rp. {{ number_format($product->sale_price, 0, 2) }}</td>
                             <td>{{ $product->brands }}</td>
                             <td>
-                                <a href="#" class="btn btn-warning">Edit</a>
-                                <button class="btn btn-danger">Delete</button>
+                                <form onsubmit="return confirm('Are you sure? ');" action="{{ route('product.destroy', $product->id) }}" method="POST">
+                                    <a href="{{ route('ecommerce.product.edit', $product->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach

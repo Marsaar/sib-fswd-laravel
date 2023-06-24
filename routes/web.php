@@ -32,6 +32,8 @@ Route::post('/login', [LoginController::class, 'authenticate'])->name('login');
 Route::get('/signup', [SignupController::class, 'index'])->name('signup');
 Route::post('/signup', [SignupController::class, 'store'])->name('signup.store');
 
+Route::get('/product/show/{id}', [ProductController::class, 'show'])->name('ecommerce.product.show');
+
 Route::middleware('auth')->group(function(){
 
     //landing
@@ -61,9 +63,10 @@ Route::middleware('auth')->group(function(){
     Route::get('/product', [ProductsController::class, 'index'])->name('ecommerce.product.index');
     Route::get('/product/create', [ProductsController::class, 'create'])->name('ecommerce.product.create');
     Route::post('/product', [ProductsController::class, 'store'])->name('ecommerce.product.store');
-    Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
-    Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('product.brand.edit');
-    Route::put('/product/{id}', [ProductController::class, 'update'])->name('product.update'); 
+    Route::delete('/product/{id}', [ProductsController::class, 'destroy'])->name('product.destroy');
+    Route::get('/product/edit/{id}', [ProductsController::class, 'edit'])->name('ecommerce.product.edit');
+    Route::put('/product/{id}', [ProductsController::class, 'update'])->name('product.update');
+     
     //User
     Route::get('/user', [UserController::class, 'index'])->name('ecommerce.user.index');
     Route::get('/user/create', [UserController::class, 'create'])->name('ecommerce.user.create');

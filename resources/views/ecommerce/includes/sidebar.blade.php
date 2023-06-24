@@ -23,6 +23,7 @@
                     <a class="nav-link" href="{{ route('ecommerce.category.index') }}">Categories</a>
                     @endif
                     <a class="nav-link" href="{{ route('ecommerce.product.index') }}">Products</a>
+                    <a class="nav-link" href="{{ route('ecommerce.brand.index') }}">Brands</a>
                 </nav>
             </div>
             @if (Auth::user()->role->name == 'Admin')

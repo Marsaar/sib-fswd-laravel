@@ -11,7 +11,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\LandingController;
-
+use App\Http\Controllers\BrandController;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,10 +49,21 @@ Route::middleware('auth')->group(function(){
     Route::post('/category', [CategoriesController::class, 'store'])->name('ecommerce.category.store');
     });
 
+    //Brand
+    Route::get('/brand', [BrandController::class, 'index'])->name('ecommerce.brand.index');
+    Route::get('/brand/create', [BrandController::class, 'create'])->name('ecommerce.brand.create');
+    Route::post('/brand', [BrandController::class, 'store'])->name('ecommerce.brand.store');
+    Route::delete('/brand/{id}', [BrandController::class, 'destroy'])->name('brand.destroy');
+    Route::get('/brand/edit/{id}', [BrandController::class, 'edit'])->name('ecommerce.brand.edit');
+    Route::put('/brand/{id}', [BrandController::class, 'update'])->name('brand.update'); 
+
     //Product
     Route::get('/product', [ProductsController::class, 'index'])->name('ecommerce.product.index');
     Route::get('/product/create', [ProductsController::class, 'create'])->name('ecommerce.product.create');
     Route::post('/product', [ProductsController::class, 'store'])->name('ecommerce.product.store');
+    Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
+    Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('product.brand.edit');
+    Route::put('/product/{id}', [ProductController::class, 'update'])->name('product.update'); 
     //User
     Route::get('/user', [UserController::class, 'index'])->name('ecommerce.user.index');
     Route::get('/user/create', [UserController::class, 'create'])->name('ecommerce.user.create');

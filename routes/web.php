@@ -9,6 +9,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SignupController;
+use App\Http\Controllers\SliderController;
+use App\Http\Controllers\LandingController;
 
 
 /*
@@ -31,10 +33,8 @@ Route::post('/signup', [SignupController::class, 'store'])->name('signup.store')
 
 Route::middleware('auth')->group(function(){
 
-//landing
-Route::get('/', function () {
-    return view('ecommerce.landing');
-});
+    //landing
+    Route::get('/', [LandingController::class, 'index'])->name('ecommerce.landing');
     //logout
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
     
@@ -60,6 +60,13 @@ Route::get('/', function () {
     Route::get('/role', [RoleController::class, 'index'])->name('ecommerce.role.index');
     Route::get('/role/create', [RoleController::class, 'create'])->name('ecommerce.role.create');
     Route::post('/role', [RoleController::class, 'store'])->name('ecommerce.role.store');
+    //Slider
+    Route::get('/slider', [SliderController::class, 'index'])->name('ecommerce.slider.index');
+    Route::get('/slider/create', [SliderController::class, 'create'])->name('ecommerce.slider.create');
+    Route::post('/slider', [SliderController::class, 'store'])->name('ecommerce.slider.store');
+    Route::delete('/slider/{id}', [SliderController::class, 'destroy'])->name('slider.destroy');
+    Route::get('/slider/edit/{id}', [SliderController::class, 'edit'])->name('ecommerce.slider.edit');
+    Route::put('/slider/{id}', [SliderController::class, 'update'])->name('slider.update'); 
 });
 
 

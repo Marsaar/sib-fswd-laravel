@@ -53,15 +53,22 @@
         <!-- Carousel -->
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="https://dummyimage.com/1000x300/dee2e6/6c757d.jpg" class="d-block w-100" alt="pic1">
-              </div>
-              <div class="carousel-item">
-                <img src="https://dummyimage.com/1000x300/dee2e6/6c757d.jpg" class="d-block w-100" alt="pic2">
-              </div>
-              <div class="carousel-item">
-                <img src="https://dummyimage.com/1000x300/dee2e6/6c757d.jpg" class="d-block w-100" alt="pic3">
-              </div>
+                @foreach ($sliders as $slider)
+                <div class="carousel-item {{ $loop->first ? 'active' : '' }}" data-bs-interval="3000">
+                    {{-- cek apakah slider memiliki image --}}
+                    @if ($slider->image)
+                    
+                        <img src="{{ asset('storage/slider/' . $slider->image) }}" class="d-block w-100 " alt="{{ $slider->image }}">
+                    
+                    @else
+                        <img src="{{ asset('images/default-slider.png') }}" class="d-block w-100" alt="default-image">
+                    @endif
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{{ $slider->title }}</h5>
+                        <p>{{ $slider->caption }}</p>
+                    </div>
+                </div>
+            @endforeach
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>

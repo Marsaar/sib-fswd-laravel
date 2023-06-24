@@ -7,7 +7,7 @@
                 Dashboard
             </a>
             <div class="sb-sidenav-menu-heading">Content</div>
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseLayouts">
+            <a class="nav-link collapsed" href="{{ route('ecommerce.slider.index') }}" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon"><i class="fas fa-image"></i></div>
                 Slider
             </a>

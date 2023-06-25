@@ -12,8 +12,9 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Action</th>
+                            <th>Actions</th>
                             <th>Name</th>
+                            <th>Avatar</th>
                             <th>Email</th>
                             <th>Phone</th>
                             <th>Role</th>
@@ -24,10 +25,17 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>
-                                <a href="#" class="btn btn-warning">Edit</a>
-                                <button class="btn btn-danger">Delete</button>
+                                <form action="{{ route('user.destroy', $user->id) }}" method="POST" class="d-inline">
+                                    <a href="{{ route('ecommerce.user.edit', $user->id) }}" class="btn btn-warning">Edit</a>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                                </form>
                             </td>
                             <td>{{ $user->name }}</td>
+                            <td>
+                                <img src="https://placehold.co/50x50" alt="avatar">
+                            </td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->phone }}</td>
                             <td>{{ $user->role->name}}</td>

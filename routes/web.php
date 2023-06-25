@@ -74,6 +74,9 @@ Route::middleware('auth')->group(function(){
     Route::get('/user', [UserController::class, 'index'])->name('ecommerce.user.index');
     Route::get('/user/create', [UserController::class, 'create'])->name('ecommerce.user.create');
     Route::post('/user', [UserController::class, 'store'])->name('ecommerce.user.store');
+    Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+    Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('ecommerce.user.edit');
+    Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
     //Role
     Route::get('/role', [RoleController::class, 'index'])->name('ecommerce.role.index');
     Route::get('/role/create', [RoleController::class, 'create'])->name('ecommerce.role.create');

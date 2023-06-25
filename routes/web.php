@@ -49,6 +49,9 @@ Route::middleware('auth')->group(function(){
     Route::get('/category', [CategoriesController::class, 'index'])->name('ecommerce.category.index');
     Route::get('/category/create', [CategoriesController::class, 'create'])->name('ecommerce.category.create');
     Route::post('/category', [CategoriesController::class, 'store'])->name('ecommerce.category.store');
+    Route::delete('/category/{id}', [CategoriesController::class, 'destroy'])->name('category.destroy');
+    Route::get('/category/edit/{id}', [CategoriesController::class, 'edit'])->name('ecommerce.category.edit');
+    Route::put('/category/{id}', [CategoriesController::class, 'update'])->name('category.update'); 
     });
 
     //Brand

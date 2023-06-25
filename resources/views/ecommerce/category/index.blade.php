@@ -24,8 +24,13 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $category['name'] }}</td>
                             <td>
-                                <a href="#" class="btn btn-warning">Edit</a>
-                                <button class="btn btn-danger">Delete</button>
+                                <form onsubmit="return confirm('Are you sure? ');" action="{{ route('category.destroy', $category->id) }}" method="POST">
+                                    <a href="{{ route('ecommerce.category.edit', $category->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach

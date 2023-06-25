@@ -26,4 +26,38 @@ class RoleController extends Controller
         return redirect()->route('ecommerce.role.index');
     }
 
+    public function edit($id)
+    {
+        // ambil data role berdasarkan id
+        $role = Role::find($id);
+        
+        // tampilkan view edit dan passing data role
+        return view('ecommerce.role.edit', compact('role'));
+    }
+    
+    public function update(Request $request, $id)
+    {
+        // ambil data role berdasarkan id
+        $role = Role::find($id);
+        
+        // update data role
+        $role->update([
+            'name' => $request->name,
+        ]);
+        
+        // alihkan halaman ke halaman roles
+        return redirect()->route('ecommerce.role.index');
+    }
+    
+    public function destroy($id)
+    {
+        // ambil data role berdasarkan id
+        $role = Role::find($id);
+        
+        // hapus data role
+        $role->delete();
+        
+        // alihkan halaman ke halaman roles
+        return redirect()->route('ecommerce.role.index');
+    }
 }

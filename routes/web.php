@@ -78,6 +78,9 @@ Route::middleware('auth')->group(function(){
     Route::get('/role', [RoleController::class, 'index'])->name('ecommerce.role.index');
     Route::get('/role/create', [RoleController::class, 'create'])->name('ecommerce.role.create');
     Route::post('/role', [RoleController::class, 'store'])->name('ecommerce.role.store');
+    Route::delete('/role/{id}', [RoleController::class, 'destroy'])->name('role.destroy');
+    Route::get('/role/edit/{id}', [RoleController::class, 'edit'])->name('ecommerce.role.edit');
+    Route::put('/role/{id}', [RoleController::class, 'update'])->name('role.update');
     //Slider
     Route::get('/slider', [SliderController::class, 'index'])->name('ecommerce.slider.index');
     Route::get('/slider/create', [SliderController::class, 'create'])->name('ecommerce.slider.create');

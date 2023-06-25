@@ -21,8 +21,12 @@
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $role['name'] }}</td>
                             <td>
-                                <a href="#" class="btn btn-warning">Edit</a>
-                                <button class="btn btn-danger">Delete</button>
+                                <form action="{{ route('role.destroy', $role->id) }}" method="POST" class="d-inline">
+                                    <a href="{{ route('ecommerce.role.edit', $role->id) }}" class="btn btn-warning">Edit</a>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach

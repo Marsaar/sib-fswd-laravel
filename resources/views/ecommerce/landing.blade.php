@@ -28,11 +28,11 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">Phones</a></li>
-                                <li><a class="dropdown-item" href="#!">Tablets</a></li>
-                                <li><a class="dropdown-item" href="#!">Laptops</a></li>
+                                <li><a class="dropdown-item" href="#!">Monitors</a></li>
+                                <li><a class="dropdown-item" href="#!">GPUs</a></li>
+                                <li><a class="dropdown-item" href="#!">RAMs</a></li>
                                 <li><a class="dropdown-item" href="#!">PC</a></li>
-                                <li><a class="dropdown-item" href="#!">Accesories</a></li>
+                                <li><a class="dropdown-item" href="#!">Storages</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -153,7 +153,7 @@
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Marsa Aushaf Rafi Website Project</p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
